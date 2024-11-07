@@ -8,7 +8,6 @@ wixAppClient.shippingRates.provideHandlers({
     const appData = await getShippingAppData({ instanceId: metadata.instanceId! });
     const currency = metadata.currency;
 
-    // Modify the shipping methods to include the Parcel Locker option as a demo
     return {
       shippingRates: appData.shippingMethods.map(({ code, title, logistics, costs, unitOfMeasure }) => ({
         code,
