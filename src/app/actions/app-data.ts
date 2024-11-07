@@ -13,7 +13,7 @@ const defaultAppData: ShippingAppData = {
   shippingMethods: [
     {
       code: 'example-shipping-rate-standard',
-      title: 'Standard Delivery',
+      title: 'Standard Delivery 2',
       type: ShippingMethodType.STANDARD,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
@@ -27,7 +27,7 @@ const defaultAppData: ShippingAppData = {
     },
     {
       code: 'example-shipping-rate-express',
-      title: 'Express Delivery',
+      title: 'Express Delivery 3',
       type: ShippingMethodType.EXPRESS,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
