@@ -9,11 +9,13 @@ import { useSetShippingAppData, useShippingAppData } from '@/app/client-hooks/ap
 import testIds from '@/app/utils/test-ids';
 
 export const ShippingRatesPageContent = () => {
-  const { dashboard: { showToast, navigate } } = useSDK();
+  const {
+    dashboard: { showToast, navigate },
+  } = useSDK();
   const persistShippingAppData = useSetShippingAppData();
   const { data: persistedShippingAppData, isLoading: isLoadingAppData } = useShippingAppData();
   const [currentShippingAppData, setCurrentShippingAppData] = useState(persistedShippingAppData);
-  
+
   useEffect(() => {
     setCurrentShippingAppData(persistedShippingAppData);
   }, [persistedShippingAppData]);
@@ -31,18 +33,21 @@ export const ShippingRatesPageContent = () => {
       .finally(() => setLoading(false));
   }, [persistShippingAppData, currentShippingAppData, showToast]);
 
-  const ButtonsBar = useCallback(() => (
-    <Box gap='SP2'>
-      <Button
-        skin='standard'
-        priority='secondary'
-        onClick={() => setCurrentShippingAppData(persistedShippingAppData)}
-      >
-        Cancel
-      </Button>
-      <Button onClick={onSave}>{loading ? <Loader size='tiny' /> : 'Save'}</Button>
-    </Box>
-  ), [loading, onSave, persistedShippingAppData]);
+  const ButtonsBar = useCallback(
+    () => (
+      <Box gap='SP2'>
+        <Button
+          skin='standard'
+          priority='secondary'
+          onClick={() => setCurrentShippingAppData(persistedShippingAppData)}
+        >
+          Cancel
+        </Button>
+        <Button onClick={onSave}>{loading ? <Loader size='tiny' /> : 'Save'}</Button>
+      </Box>
+    ),
+    [loading, onSave, persistedShippingAppData]
+  );
 
   return (
     <Page height='100vh' dataHook={testIds.DASHBOARD.WRAPPER}>

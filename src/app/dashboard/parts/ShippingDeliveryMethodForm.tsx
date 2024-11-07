@@ -11,14 +11,16 @@ export function ParcelLockerDropdown() {
   const parcelLockers = [
     { id: 1, name: 'Parcel Locker A - City Center' },
     { id: 2, name: 'Parcel Locker B - Northside' },
-    { id: 3, name: 'Parcel Locker C - Eastside' }
+    { id: 3, name: 'Parcel Locker C - Eastside' },
   ];
 
   return (
     <div>
       <label htmlFor='parcelLocker'>Choose a parcel locker:</label>
       <select id='parcelLocker' onChange={(e) => setSelectedLocker(e.target.value)} value={selectedLocker}>
-        <option value='' disabled>Select a location</option>
+        <option value='' disabled>
+          Select a location
+        </option>
         {parcelLockers.map((locker) => (
           <option key={locker.id} value={locker.id}>
             {locker.name}
@@ -50,10 +52,7 @@ export function ShippingDeliveryMethodForm({
       <Card.Header
         title={title}
         suffix={
-          <TextButton
-            dataHook={testIds.DASHBOARD.SHIPPING_METHOD_EXPAND}
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <TextButton dataHook={testIds.DASHBOARD.SHIPPING_METHOD_EXPAND} onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <ChevronUp /> : <ChevronDown />}
           </TextButton>
         }
