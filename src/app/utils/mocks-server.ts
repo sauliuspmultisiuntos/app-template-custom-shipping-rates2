@@ -174,7 +174,7 @@ export const getTestingShippingAppData = (): ShippingAppData => ({
   shippingMethods: [
     {
       code: 'test-shipping-rate-standard',
-      title: 'Testing Standard Delivery 4',
+      title: 'Standard Delivery 4',
       type: ShippingMethodType.STANDARD,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
@@ -188,7 +188,7 @@ export const getTestingShippingAppData = (): ShippingAppData => ({
     },
     {
       code: 'test-shipping-rate-express',
-      title: 'Testing Express Delivery 4',
+      title: 'Express Delivery 4',
       type: ShippingMethodType.EXPRESS,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
