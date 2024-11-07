@@ -1,3 +1,4 @@
+
 import { getShippingAppData } from '@/app/actions/app-data';
 import { calculatePrice } from '@/app/utils/shipping-calculator';
 import { wixAppClient } from '@/app/utils/wix-sdk.app';
@@ -5,14 +6,13 @@ import { wixAppClient } from '@/app/utils/wix-sdk.app';
 wixAppClient.shippingRates.provideHandlers({
   async getShippingRates({ request, metadata }) {
     const appData = await getShippingAppData({ instanceId: metadata.instanceId! });
-
     const currency = metadata.currency;
 
-    // The SPI implementation: implement your own shipping rates.
+    // Modify the shipping methods to include the Parcel Locker option as a demo
     return {
       shippingRates: appData.shippingMethods.map(({ code, title, logistics, costs, unitOfMeasure }) => ({
         code,
-        title,
+        title: title === 'Standard Shipping' ? 'Standard Shipping 4' : title,
         logistics,
         cost: {
           price: `${calculatePrice(request, costs, unitOfMeasure)}`,
