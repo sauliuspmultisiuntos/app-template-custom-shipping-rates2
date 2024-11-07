@@ -174,11 +174,11 @@ export const getTestingShippingAppData = (): ShippingAppData => ({
   shippingMethods: [
     {
       code: 'test-shipping-rate-standard',
-      title: 'Standard Delivery 4',
+      title: 'Standard Delivery 5',
       type: ShippingMethodType.STANDARD,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
-        deliveryTime: '3-7 days',
+        deliveryTime: '35-7 days',
       },
       costs: {
         first: 5,
@@ -188,11 +188,11 @@ export const getTestingShippingAppData = (): ShippingAppData => ({
     },
     {
       code: 'test-shipping-rate-express',
-      title: 'Express Delivery 4',
+      title: 'Express Delivery 5',
       type: ShippingMethodType.EXPRESS,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
-        deliveryTime: '1-2 days',
+        deliveryTime: '1-55 days',
       },
       costs: {
         first: 10,

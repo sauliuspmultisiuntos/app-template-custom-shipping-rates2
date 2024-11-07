@@ -17,7 +17,7 @@ const defaultAppData: ShippingAppData = {
       type: ShippingMethodType.STANDARD,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
-        deliveryTime: '3-7 days',
+        deliveryTime: '3-44 days',
       },
       costs: {
         first: 5,
@@ -31,7 +31,7 @@ const defaultAppData: ShippingAppData = {
       type: ShippingMethodType.EXPRESS,
       unitOfMeasure: ShippingUnitOfMeasure.NUM_OF_ITEMS,
       logistics: {
-        deliveryTime: '1-2 days',
+        deliveryTime: '1-44 days',
       },
       costs: {
         first: 10,
