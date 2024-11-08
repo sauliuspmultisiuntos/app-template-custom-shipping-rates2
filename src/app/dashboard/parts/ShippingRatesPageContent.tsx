@@ -1,4 +1,3 @@
-'use client';
 import { Box, Breadcrumbs, Button, Cell, Layout, Loader, Page } from '@wix/design-system';
 import { useSDK } from '@/app/utils/wix-sdk.client-only';
 import { useCallback, useEffect, useState } from 'react';
@@ -34,27 +33,27 @@ export const ShippingRatesPageContent = () => {
 
   const ButtonsBar = useCallback(
     () => (
-      <Box gap="SP2">
+      <Box gap='SP2'>
         <Button
-          skin="standard"
-          priority="secondary"
+          skin='standard'
+          priority='secondary'
           onClick={() => setCurrentShippingAppData(persistedShippingAppData)}
         >
           Cancel
         </Button>
-        <Button onClick={onSave}>{loading ? <Loader size="tiny" /> : 'Save'}</Button>
+        <Button onClick={onSave}>{loading ? <Loader size='tiny' /> : 'Save'}</Button>
       </Box>
     ),
     [loading, onSave, persistedShippingAppData]
   );
 
   return (
-    <Page height="100vh" dataHook={testIds.DASHBOARD.WRAPPER}>
+    <Page height='100vh' dataHook={testIds.DASHBOARD.WRAPPER}>
       <Page.Header
         actionsBar={<ButtonsBar />}
         breadcrumbs={
           <Breadcrumbs
-            activeId="2"
+            activeId='2'
             items={[
               { id: WixPageId.MANAGE_APPS, value: 'Apps' },
               { id: 'shipping-app-page', value: 'Shipping Rate App', disabled: true },
@@ -62,14 +61,14 @@ export const ShippingRatesPageContent = () => {
             onClick={({ id }) => navigate(id as string)}
           />
         }
-        title="Shipping Rate App"
-        subtitle="Customize shipping fees based on item quantity, weight, and delivery speed, ensuring a flexible and cost-effective solution for your business."
+        title='Shipping Rate App'
+        subtitle='Customize shipping fees based on item quantity, weight, and delivery speed, ensuring a flexible and cost-effective solution for your business.'
       />
       <Page.Content>
         <Layout>
           <Cell span={8}>
             {isLoadingAppData ? (
-              <Loader size="large" />
+              <Loader size='large' />
             ) : (
               currentShippingAppData?.shippingMethods.map((method, index) => (
                 <Cell key={method.code}>
