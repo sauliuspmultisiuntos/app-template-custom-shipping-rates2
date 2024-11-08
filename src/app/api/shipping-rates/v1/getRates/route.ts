@@ -22,6 +22,6 @@ wixAppClient.shippingRates.provideHandlers({
 });
 
 export async function POST(request: Request) {
-  console.info('Shipping rates::POST - called');
+  console.info('Shipping rates::POST - called2');
   return wixAppClient.servicePlugins.processRequest(request);
 }
