@@ -1,12 +1,13 @@
-import { ParcelLockerDropdown } from '@/app/checkout/ParcelLockerDropdown';
+
+import { DemoDropdown } from '@/app/checkout/DemoDropdown';
+import React from 'react';
 
 export function CheckoutPage() {
   return (
     <div>
-      <h2>Checkout</h2>
-      {/* Add other checkout form elements here */}
-      <ParcelLockerDropdown /> {/* Insert the parcel locker dropdown here */}
-      {/* Additional checkout details */}
+      <h1>Checkout Page</h1>
+      <DemoDropdown />
+      {/* Other checkout content */}
     </div>
   );
 }

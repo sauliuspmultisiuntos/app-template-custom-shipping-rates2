@@ -1,15 +1,23 @@
+
 import { useState } from 'react';
-import { ParcelLockerDropdown } from '@/app/checkout/ParcelLockerDropdown';
+import { ParcelLockerPopup } from '@/app/checkout/ParcelLockerPopup';
 
 export function DeliveryMethods() {
   const [selectedMethod, setSelectedMethod] = useState('free');
+  const [showPopup, setShowPopup] = useState(false);
 
-  console.log('Selected Method:', selectedMethod);
+  const handleMethodChange = (method: string) => {
+    setSelectedMethod(method);
+    if (method === 'standard') {
+      setShowPopup(true);
+    }
+  };
 
   return (
     <div>
       <h3>Delivery Method</h3>
       
+      {/* Free Shipping Option */}
       <div>
         <label>
           <input
@@ -17,12 +25,13 @@ export function DeliveryMethods() {
             name="deliveryMethod"
             value="free"
             checked={selectedMethod === 'free'}
-            onChange={() => setSelectedMethod('free')}
+            onChange={() => handleMethodChange('free')}
           />
           Free Shipping
         </label>
       </div>
 
+      {/* Standard Delivery Option */}
       <div>
         <label>
           <input
@@ -30,13 +39,15 @@ export function DeliveryMethods() {
             name="deliveryMethod"
             value="standard"
             checked={selectedMethod === 'standard'}
-            onChange={() => setSelectedMethod('standard')}
+            onChange={() => handleMethodChange('standard')}
           />
           Standard Delivery
+          <div style={{ fontSize: '0.9em', color: '#666' }}>3-44 days</div>
         </label>
-        {selectedMethod === 'standard' && <ParcelLockerDropdown />} {/* Show only for "Standard Delivery" */}
+        <div style={{ fontWeight: 'bold', marginLeft: '10px' }}>5,00 €</div>
       </div>
 
+      {/* Express Delivery Option */}
       <div>
         <label>
           <input
@@ -44,11 +55,16 @@ export function DeliveryMethods() {
             name="deliveryMethod"
             value="express"
             checked={selectedMethod === 'express'}
-            onChange={() => setSelectedMethod('express')}
+            onChange={() => handleMethodChange('express')}
           />
           Express Delivery
+          <div style={{ fontSize: '0.9em', color: '#666' }}>1-44 days</div>
         </label>
+        <div style={{ fontWeight: 'bold', marginLeft: '10px' }}>10,00 €</div>
       </div>
+
+      {/* Popup for Parcel Locker selection */}
+      {showPopup && <ParcelLockerPopup onClose={() => setShowPopup(false)} />}
     </div>
   );
 }
