@@ -44,7 +44,7 @@ export const ShippingRatesPageContent = () => {
         <Button onClick={onSave}>{loading ? <Loader size='tiny' /> : 'Save'}</Button>
       </Box>
     ),
-    [loading, onSave, persistedShippingAppData]
+    [loading, onSave, persistedShippingAppData],
   );
 
   return (
@@ -82,7 +82,7 @@ export const ShippingRatesPageContent = () => {
                     methodType={method.type}
                   />
                 </Cell>
-              ))
+              )),
             )}
           </Cell>
         </Layout>

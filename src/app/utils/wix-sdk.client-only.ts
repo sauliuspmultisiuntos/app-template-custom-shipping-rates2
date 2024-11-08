@@ -12,9 +12,12 @@ function inIframe() {
 }
 
 export const useSDK = () => {
+  // Extract complex dependency
+  const isWindowDefined = typeof window !== 'undefined';
+
   const sdk = useMemo(
     () =>
-      typeof window === 'undefined' || !inIframe()
+      !isWindowDefined || !inIframe()
         ? {
             // The SDK is not initialized during server-side rendering or outside an iframe, making SDK methods unusable in these contexts.
             dashboard: {} as SDK,
@@ -26,7 +29,8 @@ export const useSDK = () => {
               dashboard,
             },
           }),
-    [typeof window],
+    [isWindowDefined], // Updated dependency array
   );
+  
   return sdk;
 };
