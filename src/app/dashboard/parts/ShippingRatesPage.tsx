@@ -3,10 +3,13 @@ import '@wix/design-system/styles.global.css';
 import { AppProviders } from '@/app/utils/client-providers';
 import { ShippingRatesPageContent } from '@/app/dashboard/parts/ShippingRatesPageContent';
 
-export const ShippingRatesPage = ({}: {}) => {
+export const ShippingRatesPage = () => {
   return (
     <AppProviders>
       <ShippingRatesPageContent />
     </AppProviders>
   );
 };
+
+// Ensure the component is properly exported for use elsewhere
+export default ShippingRatesPage;

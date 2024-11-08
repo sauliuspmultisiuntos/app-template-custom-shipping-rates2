@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Box, Card, Cell, Collapse, Dropdown, FormField, Input, Layout, Text, TextButton } from '@wix/design-system';
 import { ChevronDown, ChevronUp } from '@wix/wix-ui-icons-common';
-import { ShippingCosts, ShippingMethodType, ShippingUnitOfMeasure } from '@/app/types/app-data.model';
+import { ShippingCosts, ShippingUnitOfMeasure } from '@/app/types/app-data.model';
 import testIds from '@/app/utils/test-ids';
+
+// Define props interface
+interface ShippingDeliveryMethodFormProps {
+  title: string;
+  unitOfMeasure: ShippingUnitOfMeasure;
+  shippingCosts: ShippingCosts;
+  onUnitOfMeasureSelected: (unit: ShippingUnitOfMeasure) => void;
+  onShippingCostsChanged: (costs: ShippingCosts) => void;
+  expandByDefault?: boolean;
+}
 
 // Added ParcelLockerDropdown component for managing parcel lockers
 export function ParcelLockerDropdown() {
@@ -37,7 +47,7 @@ export function ShippingDeliveryMethodForm({
   onUnitOfMeasureSelected,
   onShippingCostsChanged,
   expandByDefault = false,
-}) {
+}: ShippingDeliveryMethodFormProps) {
   const uomName =
     unitOfMeasure === ShippingUnitOfMeasure.NUM_OF_ITEMS
       ? 'item'

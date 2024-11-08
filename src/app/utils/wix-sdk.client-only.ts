@@ -29,8 +29,8 @@ export const useSDK = () => {
               dashboard,
             },
           }),
-    [isWindowDefined], // Updated dependency array
+    [isWindowDefined] // Removed extra spaces here
   );
-  
+
   return sdk;
 };
