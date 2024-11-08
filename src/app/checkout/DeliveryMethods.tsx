@@ -7,9 +7,13 @@ export function DeliveryMethods() {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleMethodChange = (method: string) => {
+    console.log("Selected delivery method:", method); // Debug log
     setSelectedMethod(method);
-    if (method === 'standard') {
+    if (method.includes('Standard Delivery')) {
+      console.log("Triggering popup for Standard Delivery"); // Debug log
       setShowPopup(true);
+    } else {
+      setShowPopup(false); // Hide popup for other methods
     }
   };
 
@@ -37,9 +41,9 @@ export function DeliveryMethods() {
           <input
             type="radio"
             name="deliveryMethod"
-            value="standard"
-            checked={selectedMethod === 'standard'}
-            onChange={() => handleMethodChange('standard')}
+            value="Standard Delivery 4"
+            checked={selectedMethod === 'Standard Delivery 4'}
+            onChange={() => handleMethodChange('Standard Delivery 4')}
           />
           Standard Delivery
           <div style={{ fontSize: '0.9em', color: '#666' }}>3-44 days</div>
