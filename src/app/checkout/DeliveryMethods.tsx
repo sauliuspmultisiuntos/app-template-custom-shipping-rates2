@@ -1,4 +1,4 @@
-import { ParcelLockerDropdown } from '@/app/checkout/ParcelLockerDropdown';
+import { ParcelLockerDropdown } from './ParcelLockerDropdown';
 
 export function DeliveryMethods() {
   return (
