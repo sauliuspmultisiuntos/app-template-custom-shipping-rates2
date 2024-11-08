@@ -57,4 +57,27 @@ export function ShippingDeliveryMethodForm({
         }
       />
       <Collapse open={isOpen}>
-        <Card.Divide
+        <Card.Divider />
+        <Card.Content dataHook={testIds.DASHBOARD.SHIPPING_METHOD_FORM}>
+          <Box direction="vertical" gap="SP7">
+            <FormField label="Parameter">
+              <Dropdown
+                selectedId={unitOfMeasure}
+                onSelect={(option, sameOptionWasPicked) =>
+                  sameOptionWasPicked ? null : onUnitOfMeasureSelected(option.id as ShippingUnitOfMeasure)
+                }
+                options={[
+                  { id: ShippingUnitOfMeasure.NUM_OF_ITEMS, value: 'Number of items' },
+                  { id: ShippingUnitOfMeasure.WEIGHT_IN_KG, value: 'Weight in kg' },
+                  { id: ShippingUnitOfMeasure.WEIGHT_IN_LB, value: 'Weight in lb' },
+                ]}
+                placeholder="Select parameter"
+              />
+            </FormField>
+            <ParcelLockerDropdown /> {/* Added dropdown component here */}
+          </Box>
+        </Card.Content>
+      </Collapse>
+    </Card>
+  );
+}
