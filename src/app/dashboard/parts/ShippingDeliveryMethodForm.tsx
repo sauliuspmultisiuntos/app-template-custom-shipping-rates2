@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Box, Card, Cell, Collapse, Dropdown, FormField, Input, Layout, Text, TextButton } from '@wix/design-system';
 import { ChevronDown, ChevronUp } from '@wix/wix-ui-icons-common';
@@ -16,9 +15,9 @@ export function ParcelLockerDropdown() {
 
   return (
     <div>
-      <label htmlFor='parcelLocker'>Choose a parcel locker:</label>
-      <select id='parcelLocker' onChange={(e) => setSelectedLocker(e.target.value)} value={selectedLocker}>
-        <option value='' disabled>
+      <label htmlFor="parcelLocker">Choose a parcel locker:</label>
+      <select id="parcelLocker" onChange={(e) => setSelectedLocker(e.target.value)} value={selectedLocker}>
+        <option value="" disabled>
           Select a location
         </option>
         {parcelLockers.map((locker) => (
@@ -58,27 +57,4 @@ export function ShippingDeliveryMethodForm({
         }
       />
       <Collapse open={isOpen}>
-        <Card.Divider />
-        <Card.Content dataHook={testIds.DASHBOARD.SHIPPING_METHOD_FORM}>
-          <Box direction='vertical' gap='SP7'>
-            <FormField label='Parameter'>
-              <Dropdown
-                selectedId={unitOfMeasure}
-                onSelect={(option, sameOptionWasPicked) =>
-                  sameOptionWasPicked ? null : onUnitOfMeasureSelected(option.id as ShippingUnitOfMeasure)
-                }
-                options={[
-                  { id: ShippingUnitOfMeasure.NUM_OF_ITEMS, value: 'Number of items' },
-                  { id: ShippingUnitOfMeasure.WEIGHT_IN_KG, value: 'Weight in kg' },
-                  { id: ShippingUnitOfMeasure.WEIGHT_IN_LB, value: 'Weight in lb' },
-                ]}
-                placeholder='Select parameter'
-              />
-            </FormField>
-            <ParcelLockerDropdown /> {/* Added dropdown component here */}
-          </Box>
-        </Card.Content>
-      </Collapse>
-    </Card>
-  );
-}
+        <Card.Divide
