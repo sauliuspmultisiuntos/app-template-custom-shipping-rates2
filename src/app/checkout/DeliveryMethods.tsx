@@ -1,13 +1,28 @@
-import { useState } from 'react'; // Add this import
+import { useState } from 'react';
 import { ParcelLockerDropdown } from '@/app/checkout/ParcelLockerDropdown';
 
 export function DeliveryMethods() {
-  const [selectedMethod, setSelectedMethod] = useState('standard'); // or however your delivery method is managed
+  const [selectedMethod, setSelectedMethod] = useState('free');
+
+  console.log('Selected Method:', selectedMethod);
 
   return (
     <div>
       <h3>Delivery Method</h3>
-      {/* Other delivery options */}
+      
+      <div>
+        <label>
+          <input
+            type="radio"
+            name="deliveryMethod"
+            value="free"
+            checked={selectedMethod === 'free'}
+            onChange={() => setSelectedMethod('free')}
+          />
+          Free Shipping
+        </label>
+      </div>
+
       <div>
         <label>
           <input
@@ -19,7 +34,7 @@ export function DeliveryMethods() {
           />
           Standard Delivery
         </label>
-        {selectedMethod === 'standard' && <ParcelLockerDropdown />} {/* Show dropdown when Standard is selected */}
+        {selectedMethod === 'standard' && <ParcelLockerDropdown />} {/* Show only for "Standard Delivery" */}
       </div>
 
       <div>
