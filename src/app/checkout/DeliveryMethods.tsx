@@ -1,74 +1,33 @@
 
-import { useState } from 'react';
-import { ParcelLockerPopup } from '@/app/checkout/ParcelLockerPopup';
+import React, { useState } from 'react';
 
 export function DeliveryMethods() {
-  const [selectedMethod, setSelectedMethod] = useState('free');
-  const [showPopup, setShowPopup] = useState(false);
+  console.log("DeliveryMethods component loaded - minimal version"); // Component load log
+
+  const [selectedMethod, setSelectedMethod] = useState('');
 
   const handleMethodChange = (method: string) => {
-    console.log("Selected delivery method:", method); // Debug log
+    console.log("Method change handler triggered - minimal version"); // Debug log
     setSelectedMethod(method);
-    if (method.includes('Standard Delivery')) {
-      console.log("Triggering popup for Standard Delivery"); // Debug log
-      setShowPopup(true);
-    } else {
-      setShowPopup(false); // Hide popup for other methods
-    }
   };
 
   return (
     <div>
-      <h3>Delivery Method</h3>
+      <h3>Minimal Delivery Method Component</h3>
       
-      {/* Free Shipping Option */}
+      {/* Example Delivery Option */}
       <div>
         <label>
           <input
             type="radio"
             name="deliveryMethod"
-            value="free"
-            checked={selectedMethod === 'free'}
-            onChange={() => handleMethodChange('free')}
+            value="example"
+            checked={selectedMethod === 'example'}
+            onChange={() => handleMethodChange('example')}
           />
-          Free Shipping
+          Example Shipping
         </label>
       </div>
-
-      {/* Standard Delivery Option */}
-      <div>
-        <label>
-          <input
-            type="radio"
-            name="deliveryMethod"
-            value="Standard Delivery 4"
-            checked={selectedMethod === 'Standard Delivery 4'}
-            onChange={() => handleMethodChange('Standard Delivery 4')}
-          />
-          Standard Delivery
-          <div style={{ fontSize: '0.9em', color: '#666' }}>3-44 days</div>
-        </label>
-        <div style={{ fontWeight: 'bold', marginLeft: '10px' }}>5,00 €</div>
-      </div>
-
-      {/* Express Delivery Option */}
-      <div>
-        <label>
-          <input
-            type="radio"
-            name="deliveryMethod"
-            value="express"
-            checked={selectedMethod === 'express'}
-            onChange={() => handleMethodChange('express')}
-          />
-          Express Delivery
-          <div style={{ fontSize: '0.9em', color: '#666' }}>1-44 days</div>
-        </label>
-        <div style={{ fontWeight: 'bold', marginLeft: '10px' }}>10,00 €</div>
-      </div>
-
-      {/* Popup for Parcel Locker selection */}
-      {showPopup && <ParcelLockerPopup onClose={() => setShowPopup(false)} />}
     </div>
   );
 }
