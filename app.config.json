@@ -1,0 +1,7 @@
+
+{
+  "permissions": [
+    "wix-ecommerce.manage",
+    "wix-ecommerce.read"
+  ]
+}
