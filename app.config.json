@@ -1,7 +1,16 @@
-
 {
-  "permissions": [
-    "wix-ecommerce.manage",
-    "wix-ecommerce.read"
-  ]
+    "permissions": [
+        "wix-ecommerce.manage",
+        "wix-ecommerce.read"
+    ],
+    "widgets": [
+        {
+            "widgetId": "demoTextWidget",
+            "placement": [
+                {
+                    "slotId": "checkout:summary:after"
+                }
+            ]
+        }
+    ]
 }
